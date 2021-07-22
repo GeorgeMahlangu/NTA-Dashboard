@@ -79,7 +79,7 @@
                           <tr>
                             <td>".$row['chargeCode']."</td> 
                             <td>".$row['chargeType']."</td>
-                            <td>".$row['penalty']."</td>
+                            <td>R".$row['penalty']."</td>
                             <td>
                             <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['chargeCode']."'><i class='fa fa-edit'></i> Edit</button>
                               <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['chargeCode']."'><i class='fa fa-trash'></i> Delete</button>

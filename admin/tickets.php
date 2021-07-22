@@ -59,6 +59,18 @@
                   <button type="submit" class="btn btn-success btn-sm btn-flat" name="print"><span class="glyphicon glyphicon-print"></span> Print</button>
                 </form>
               </div>
+              <div class="pull-right">
+                <form method="POST" class="form-inline" action="ticket_user_print.php" style="padding-right: 10px;">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                      <i class="fa fa-user"></i>
+                    </div>
+                    <input type="text" placeholder="Enter ID Number" class="form-control pull-right col-sm-8" id="report" name="report">
+                  </div>
+                  <button type="submit" class="btn btn-success btn-sm btn-flat" name="print"><span class="glyphicon glyphicon-print"></span> Print User Report</button>
+                </form>
+              </div>
+              
             </div>
             <div class="box-body">
               <table id="example1" class="table table-bordered">
