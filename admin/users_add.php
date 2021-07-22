@@ -32,8 +32,6 @@
 			exit();	
 		}
 
-
-
 		if(!preg_match($nameValidation,$firstname)){
 			$_SESSION['error'] = 'Invalid First Name Format';
 			header('location: officers.php');

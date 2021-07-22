@@ -65,7 +65,7 @@
                     <div class="input-group-addon">
                       <i class="fa fa-user"></i>
                     </div>
-                    <input type="text" placeholder="Enter ID Number" class="form-control pull-right col-sm-8" id="report" name="report">
+                    <input type="number" placeholder="Enter ID Number" class="form-control pull-right col-sm-8" id="report" name="report">
                   </div>
                   <button type="submit" class="btn btn-success btn-sm btn-flat" name="print"><span class="glyphicon glyphicon-print"></span> Print User Report</button>
                 </form>

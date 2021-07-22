@@ -100,7 +100,7 @@
 		$row = $stmt->fetch();
 
 		if($row['numrows'] <= 0){
-			$_SESSION['error'] = 'There are no tickets issue for this driver.';
+			$_SESSION['error'] = 'There are no tickets issued for this driver.';
             header('location: tickets.php');
 			exit();
            
