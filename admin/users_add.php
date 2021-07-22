@@ -15,13 +15,61 @@
 
 		$rand = generateRandomString();
 
-		
+		$nameValidation = "/^[a-zA-Z ]+$/";
+		$emailValidation = "/^[_a-zA-Z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9]+(\.[a-z]{2,4})$/";
+		$numberValidation = "/^[0-9]+$/";
+		$addressValidation = "/^[A-Za-z0-9'\.\-\s\,]+$/";
+
 		$firstname = $_POST['firstname'];
 		$lastname = $_POST['lastname'];
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 		$cellnumber = $_POST['cellnumber'];
-		
+
+		if(!preg_match($emailValidation,$email)){
+			$_SESSION['error'] = 'Invalid Email address';
+			header('location: officers.php');
+			exit();	
+		}
+
+
+
+		if(!preg_match($nameValidation,$firstname)){
+			$_SESSION['error'] = 'Invalid First Name Format';
+			header('location: officers.php');
+			exit();	
+		}
+
+		if(!preg_match($nameValidation,$lastname)){
+			$_SESSION['error'] = 'Invalid Last Name Format';
+			header('location: officers.php');
+			exit();	
+		}
+
+		if(!preg_match($numberValidation,$cellnumber)){
+			$_SESSION['error'] = 'Invalid Cell Number Format';
+			header('location: officers.php');
+			exit();	
+		}
+		else
+		{
+			if(strlen($cellnumber) > 10 || strlen($cellnumber) < 10)
+			{
+				$_SESSION['error'] = 'Invalid cell number cell number must be 10 digits';
+				header('location: officers.php');
+				exit();	
+			} 
+		}
+		if(!empty($password))
+		{
+			if(strlen($password) < 8){
+				$_SESSION['error'] = 'Password is too Short';
+				header('location: officers.php');
+				exit();	
+			}
+		}
+
+
 		$conn = $pdo->open();
 
 		$stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM Officer WHERE email=:email");

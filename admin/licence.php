@@ -49,13 +49,8 @@
             <div class="box-header with-border">
               <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> New</a>
               <div class="pull-right">
-                <form method="POST" class="form-inline" action="ticket_print.php">
-                  <div class="input-group">
-                    <div class="input-group-addon">
-                      <i class="fa fa-calendar"></i>
-                    </div>
-                    <input type="text" class="form-control pull-right col-sm-8" id="reservation" name="date_range">
-                  </div>
+                <form method="POST" class="form-inline" action="#">
+                  
                   <button type="submit" class="btn btn-success btn-sm btn-flat" name="print"><span class="glyphicon glyphicon-print"></span> Print</button>
                 </form>
               </div>

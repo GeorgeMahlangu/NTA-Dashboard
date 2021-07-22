@@ -66,7 +66,7 @@
                 </div>
                
                 <div class="form-group">
-                    <label for="licence-code" class="col-sm-3 control-label">Charge Type (Descriptoin)</label>
+                    <label for="licence-code" class="col-sm-3 control-label">Charge Type (Description)</label>
 
                     <div class="col-sm-9">
                        <input type="text" class="form-control" id="edit_chargeType" name="chargeType" required> 

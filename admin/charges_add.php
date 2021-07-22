@@ -3,11 +3,17 @@
 
 	if(isset($_POST['add'])){
 
-		
+		$numberValidation = "/^[0-9]+$/";
 		
 		$chargeCode = $_POST['chargeCode'];
 		$chargeType = $_POST['chargeType'];
 		$penalty = $_POST['penalty'];
+
+		if(!preg_match($numberValidation,$penalty)){
+			$_SESSION['error'] = 'Invalid Penalty';
+			header('location: charges.php');
+			exit();	
+		}
 		
 		$conn = $pdo->open();
 
@@ -17,6 +23,7 @@
 
 		if($row['numrows'] > 0){
 			$_SESSION['error'] = 'Charge Code already Exist';
+			header('location: charges.php');
 			exit();
 		}
 

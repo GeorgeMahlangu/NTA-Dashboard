@@ -47,7 +47,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> New</a>
+              <!-- <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> New</a> -->
               <!-- <div class="pull-right">
                 <form method="POST" class="form-inline" action="users_print.php">
                   <div class="input-group">
@@ -67,7 +67,7 @@
                   <th>Full Name</th>
                   <th>Contact No</th>
                   <th>Email</th>
-                  <th>Tools</th>
+                  <!-- <th>Tools</th> -->
                 </thead>
                 <tbody>
                   <?php
@@ -84,10 +84,10 @@
                             <td>".$row['firstname'].' '.$row['lastname']."</td>
                             <td>".$row['cellnumber']."</td>
                             <td>".$row['email']."</td>
-                            <td>
+                            <!-- <td>
                               <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
                               <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button>
-                            </td>
+                            </td> -->
                           </tr>
                         ";
                       }
