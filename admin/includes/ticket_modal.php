@@ -300,6 +300,13 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="licence-number" class="col-sm-3 control-label">Vehicle Registration</label>
+
+                    <div class="col-sm-9">
+                      <input readonly type="text" class="form-control" id="edit_vehicle-registration" name="registration-number" required>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="vehicle-color" class="col-sm-3 control-label">Vehicle Colour</label>
 
                     <div class="col-sm-9">
@@ -332,7 +339,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-              <button type="submit" class="btn btn-primary btn-flat" name="add"><i class="fa fa-save"></i> Save</button>
+              <!-- <button type="submit" class="btn btn-primary btn-flat" name="add"><i class="fa fa-save"></i> Save</button> -->
               </form>
             </div>
         </div>

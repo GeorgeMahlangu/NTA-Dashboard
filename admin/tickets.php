@@ -188,6 +188,7 @@ function getRow(id){
       $('#edit_chargeCode').val(response.chargeCode);   
       $('#edit_chargeType').val(response.chargeType); 
       $('#edit_penalty').val(response.penalty); 
+      $('#edit_vehicle-registration').val(response.penalty);       
       $('.refference').html('Refference :'+response.refference);
       $('.fullname').html('Issued to :'+response.firstname+' '+response.lastname);
     }
