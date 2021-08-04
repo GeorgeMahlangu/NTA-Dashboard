@@ -49,7 +49,7 @@
             <div class="box-header with-border">
               <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> New</a>
               <div class="pull-right">
-                <form method="POST" class="form-inline" action="ticket_print.php">
+                <form method="POST" class="form-inline" action="charges_print.php">
                   <div class="input-group">
                     
                    

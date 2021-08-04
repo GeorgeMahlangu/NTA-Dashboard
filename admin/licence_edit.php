@@ -5,6 +5,7 @@
 
        
 		$id = $_POST['id'];
+		$licence = $_POST['licence_number'];
 		$licenceCode = $_POST['licence-code'];
 		$prdp = $_POST['prdp'];
 		$issueDate = date('Y-m-d', strtotime($_POST['dateIssued']));
@@ -51,8 +52,8 @@
 
 
 		try{
-			$stmt = $conn->prepare("UPDATE licence SET licenceCode=:licenceCode, PrDP=:PrDP, dateIssued=:issueDate, expiryDate=:expiryDate WHERE id=:id");
-			$stmt->execute(['id'=>$id, 'licenceCode'=>$licenceCode, 'PrDP'=>$prdp, 'issueDate'=>$issueDate, 'expiryDate'=>$expiryDate]);
+			$stmt = $conn->prepare("UPDATE licence SET licenceNumber=:licenceNumber, licenceCode=:licenceCode, PrDP=:PrDP, dateIssued=:issueDate, expiryDate=:expiryDate WHERE id=:id");
+			$stmt->execute(['licenceNumber'=>$licence, 'id'=>$id, 'licenceCode'=>$licenceCode, 'PrDP'=>$prdp, 'issueDate'=>$issueDate, 'expiryDate'=>$expiryDate]);
 			$_SESSION['success'] = 'Licence updated successfully';
 
 		}

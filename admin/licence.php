@@ -49,7 +49,7 @@
             <div class="box-header with-border">
               <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> New</a>
               <div class="pull-right">
-                <form method="POST" class="form-inline" action="#">
+                <form method="POST" class="form-inline" action="licence_print.php">
                   
                   <button type="submit" class="btn btn-success btn-sm btn-flat" name="print"><span class="glyphicon glyphicon-print"></span> Print</button>
                 </form>
@@ -58,6 +58,7 @@
             <div class="box-body">
               <table id="example1" class="table table-bordered">
                 <thead>
+                  <th>Licence Number.</th>
                   <th>ID.</th>
                   <th>Licence Code</th>
                   <th>PrDP</th>
@@ -76,6 +77,7 @@
 
                         echo "
                           <tr>
+                            <td>".$row['licenceNumber']."</td> 
                             <td>".$row['id']."</td> 
                             <td>".$row['licenceCode']."</td>
                             <td>".$row['PrDP']."</td>
@@ -152,11 +154,12 @@ function getRow(id){
     success: function(response){
       $('.userid').val(response.id);
       $('#edit_id').val(response.id);
+      $('#edit_licence_number').val(response.licenceNumber);
       $('#edit_licence-code').val(response.licenceCode);
       $('#edit_prdp').val(response.PrDP);
       $('#edit_dateIssued').val(response.dateIssued);
       $('#edit_expiryDate').val(response.expiryDate);
-      $('.fullname').html('Issued to :'+response.id);
+      $('.fullname').html('Licence Number: ' + response.licenceNumber + '<br>Issued to :'+response.id);
     }
   });
 }

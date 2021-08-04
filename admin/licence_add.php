@@ -61,6 +61,7 @@
 
 		
 		$id = $_POST['id'];
+		$licenceNumber = $_POST['licenceNumber'];
 
 		Validate($id);
 
@@ -83,8 +84,8 @@
 	
 		else{
 			try{
-				$stmt = $conn->prepare("INSERT INTO `licence` (`id`, `licenceCode`, `PrDP`, `dateIssued`, `expiryDate`) VALUES (:id, :licenceCode, :PrDP, :dateIssued, :expiryDate)");
-				$stmt->execute(['id'=>$id, 'licenceCode'=>$licenceCode, 'PrDP'=>$prdp,'dateIssued'=>$issueDate, 'expiryDate'=>$expiryDate]);
+				$stmt = $conn->prepare("INSERT INTO `licence` (`licenceNumber`, `id`, `licenceCode`, `PrDP`, `dateIssued`, `expiryDate`) VALUES (:licenceNumber, :id, :licenceCode, :PrDP, :dateIssued, :expiryDate)");
+				$stmt->execute(['licenceNumber'=>$licenceNumber, 'id'=>$id, 'licenceCode'=>$licenceCode, 'PrDP'=>$prdp,'dateIssued'=>$issueDate, 'expiryDate'=>$expiryDate]);
 				$_SESSION['success'] = 'Licence added successfully';
 
 			}
@@ -96,7 +97,7 @@
 		$pdo->close();
 	}
 	else{
-		$_SESSION['error'] = 'Fill up officer form first';
+		$_SESSION['error'] = 'Fill up Licence form first';
 	}
 
 	header('location: licence.php');

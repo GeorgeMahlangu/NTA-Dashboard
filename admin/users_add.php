@@ -25,6 +25,7 @@
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 		$cellnumber = $_POST['cellnumber'];
+		$adminEmail = $admin['email'];
 
 		if(!preg_match($emailValidation,$email)){
 			$_SESSION['error'] = 'Invalid Email address';
@@ -85,8 +86,8 @@
 			$filename = $_FILES['photo']['name'];
 			$now = date('Y-m-d');
 			try{
-				$stmt = $conn->prepare("INSERT INTO `officer` (`staffNumber`, `created_at`, `updated_at`, `firstname`, `lastname`, `email`,`cellnumber`,`password`, `one_time_pin`) VALUES (NULL, NOW(), NOW(), :firstname, :lastname, :email, :cellnumber, :password, :one_time_pin)");
-				$stmt->execute(['firstname'=>$firstname, 'lastname'=>$lastname, 'email'=>$email,'cellnumber'=>$cellnumber, 'password'=>$password, 'one_time_pin'=>$rand]);
+				$stmt = $conn->prepare("INSERT INTO `officer` (`staffNumber`,`adminEmail`, `created_at`, `updated_at`, `firstname`, `lastname`, `email`,`cellnumber`,`password`, `one_time_pin`) VALUES (NULL, :adminEmail,  NOW(), NOW(), :firstname, :lastname, :email, :cellnumber, :password, :one_time_pin)");
+				$stmt->execute(['adminEmail'=>$adminEmail, 'firstname'=>$firstname, 'lastname'=>$lastname, 'email'=>$email,'cellnumber'=>$cellnumber, 'password'=>$password, 'one_time_pin'=>$rand]);
 				$_SESSION['success'] = 'Officer added successfully';
 
 			}
