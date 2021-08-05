@@ -52,7 +52,7 @@
 	    $pdf->AddPage();  
 	    $content = '';  
 	    $content .= '
-	      	<h2 align="center">Group J</h2>
+	      	<h2 align="center">NTA</h2>
 	      	<h4 align="center">CHARGES REPORT</h4>
 	      	<h4 align="center"><br></h4>
 	      	<table border="1" cellspacing="0" cellpadding="3">  

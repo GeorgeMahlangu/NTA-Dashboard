@@ -45,7 +45,7 @@
     	</form>
       <br>
       <!-- <a href="password_forgot.php">I forgot my password</a><br> -->
-      <!-- <a href="signup.php" class="text-center">Register a new membership</a><br> -->
+      <a href="signup.php" class="text-center"><i class="fa fa-user"></i> Register a new administrator</a><br>
       <a href="index.php"><i class="fa fa-home"></i> Home</a>
   	</div>
 </div>
