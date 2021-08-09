@@ -6,7 +6,7 @@
 		
 		$conn = $pdo->open();
 
-		$stmt = $conn->prepare("Select T.*,C.chargeType, C.penalty,V.*,D.firstname, D.lastname, D.address, D.email, D.cellnumber, L.dateIssued, L.expiryDate, L.licenceCode, L.PrDP 
+		$stmt = $conn->prepare("SELECT T.*,C.chargeType, C.penalty,V.*,D.firstname, D.lastname, D.address, D.email, D.cellnumber, L.dateIssued, L.expiryDate, L.licenceCode, L.PrDP 
 		from ticket as T
 		LEFT JOIN charge as C ON C.chargeCode = T.chargeCode
 		LEFT JOIN vehicle as V ON V.vehicleRegistration = T.vehicleRegistration
