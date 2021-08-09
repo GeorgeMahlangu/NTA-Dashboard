@@ -6,7 +6,12 @@
 		
 		$conn = $pdo->open();
 
-		$stmt = $conn->prepare("SELECT * FROM ticket WHERE refference=:id");
+		$stmt = $conn->prepare("Select T.*,C.chargeType, C.penalty,V.*,D.firstname, D.lastname, D.address, D.email, D.cellnumber, L.dateIssued, L.expiryDate, L.licenceCode, L.PrDP 
+		from ticket as T
+		LEFT JOIN charge as C ON C.chargeCode = T.chargeCode
+		LEFT JOIN vehicle as V ON V.vehicleRegistration = T.vehicleRegistration
+		LEFT JOIN driver as D ON D.Id = T.Id
+		LEFT JOIN licence as L on L.Id = D.Id where reference=:id");
 		$stmt->execute(['id'=>$id]);
 		$row = $stmt->fetch();
 		

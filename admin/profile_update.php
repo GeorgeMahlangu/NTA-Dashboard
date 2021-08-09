@@ -85,8 +85,8 @@
 			$conn = $pdo->open();
 
 			try{
-				$stmt = $conn->prepare("UPDATE administrator SET email=:email, password=:password, firstname=:firstname, lastname=:lastname WHERE email=:id");
-				$stmt->execute(['email'=>$email, 'password'=>$password, 'firstname'=>$firstname, 'lastname'=>$lastname, 'id'=>$admin['email']]);
+				$stmt = $conn->prepare("UPDATE administrator SET adminEmail=:email, password=:password, firstname=:firstname, lastname=:lastname WHERE adminEmail=:id");
+				$stmt->execute(['email'=>$email, 'password'=>$password, 'firstname'=>$firstname, 'lastname'=>$lastname, 'id'=>$admin['adminEmail']]);
 
 				$_SESSION['success'] = 'Account updated successfully';
 			}

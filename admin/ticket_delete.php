@@ -7,7 +7,7 @@
 		$conn = $pdo->open();
 
 		try{
-			$stmt = $conn->prepare("DELETE FROM ticket WHERE refference=:id");
+			$stmt = $conn->prepare("DELETE FROM ticket WHERE reference=:id");
 			$stmt->execute(['id'=>$id]);
 
 			$_SESSION['success'] = 'Ticket deleted successfully';

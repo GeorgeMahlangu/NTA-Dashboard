@@ -16,9 +16,9 @@ Class Database{
 	// } catch (PDOException $e) {
 	// 	throw new PDOException($e->getMessage(), (int)$e->getCode());
 	// }
-	private $server = "mysql:host=b2fsvsqomecefeprcgga-mysql.services.clever-cloud.com;dbname=b2fsvsqomecefeprcgga";
-	private $username = "uq4i4rz6tyaobp5x";
-	private $password = "6wPNPeW62jzRfqyzUHBv";
+	private $server = "mysql:host=b89ljytnguxjaax35cy5-mysql.services.clever-cloud.com;dbname=b89ljytnguxjaax35cy5";
+	private $username = "uj3q7ayl3rmapts0";
+	private $password = "3FP6PV01guJDgUlOEJCq";
 	private $options  = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,);
 	protected $conn;
  	

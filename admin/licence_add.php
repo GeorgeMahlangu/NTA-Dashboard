@@ -72,7 +72,7 @@
 		
 		$conn = $pdo->open();
 
-		$stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM licence WHERE id=:id");
+		$stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM licence WHERE Id=:id");
 		$stmt->execute(['id'=>$id]);
 		$row = $stmt->fetch();
 
@@ -84,7 +84,7 @@
 	
 		else{
 			try{
-				$stmt = $conn->prepare("INSERT INTO `licence` (`licenceNumber`, `id`, `licenceCode`, `PrDP`, `dateIssued`, `expiryDate`) VALUES (:licenceNumber, :id, :licenceCode, :PrDP, :dateIssued, :expiryDate)");
+				$stmt = $conn->prepare("INSERT INTO `licence` (`licenceNumber`, `Id`, `licenceCode`, `PrDP`, `dateIssued`, `expiryDate`) VALUES (:licenceNumber, :id, :licenceCode, :PrDP, :dateIssued, :expiryDate)");
 				$stmt->execute(['licenceNumber'=>$licenceNumber, 'id'=>$id, 'licenceCode'=>$licenceCode, 'PrDP'=>$prdp,'dateIssued'=>$issueDate, 'expiryDate'=>$expiryDate]);
 				$_SESSION['success'] = 'Licence added successfully';
 

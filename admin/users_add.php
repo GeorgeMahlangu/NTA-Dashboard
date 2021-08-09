@@ -25,7 +25,7 @@
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 		$cellnumber = $_POST['cellnumber'];
-		$adminEmail = $admin['email'];
+		$adminEmail = $admin['adminEmail'];
 
 		if(!preg_match($emailValidation,$email)){
 			$_SESSION['error'] = 'Invalid Email address';

@@ -32,13 +32,13 @@
 			else
 			{
 
-				$stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows1 FROM administrator WHERE email = :email");
+				$stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows1 FROM administrator WHERE adminEmail = :email");
 				$stmt->execute(['email'=>$username]);
 				$row = $stmt->fetch();
 
 				if($row['numrows1'] > 0){
 					if($password == $row['password']){
-							$_SESSION['admin'] = $row['email'];
+							$_SESSION['admin'] = $row['adminEmail'];
 					}
 					else{
 						$_SESSION['error'] = 'Incorrect Password';

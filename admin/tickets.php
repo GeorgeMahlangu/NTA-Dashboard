@@ -87,20 +87,25 @@
                     $conn = $pdo->open();
 
                     try{
-                      $stmt = $conn->prepare("SELECT * FROM ticket ");
+                      $stmt = $conn->prepare("SELECT T.*,C.chargeType, C.Penalty,V.*,D.firstname, D.lastname, D.address, D.email, D.cellnumber, L.dateIssued, L.expiryDate, L.licenceCode, L.PrDP 
+                      from ticket as T
+                      LEFT JOIN charge as C ON C.chargeCode = T.chargeCode
+                      LEFT JOIN vehicle as V ON V.vehicleRegistration = T.vehicleRegistration
+                      LEFT JOIN driver as D ON D.Id = T.Id
+                      LEFT JOIN licence as L on L.Id = D.Id");
                       $stmt->execute();
                       foreach($stmt as $row){
 
                         echo "
                           <tr>
-                            <td>".$row['refference']."</td> 
+                            <td>".$row['reference']."</td> 
                             <td>".$row['firstname'].' '.$row['lastname']."</td>
-                            <td>".$row['id']."</td>
+                            <td>".$row['Id']."</td>
                             <td>".$row['email']."</td>
                             <td>".date('M d, Y', strtotime($row['dateIssued']))."</td>
                             <td>
-                            <button class='btn btn-info btn-sm info edit btn-flat' data-id='".$row['refference']."'><i class='fa fa-search'></i> View</button>
-                              <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['refference']."'><i class='fa fa-trash'></i> Delete</button>
+                            <button class='btn btn-info btn-sm info edit btn-flat' data-id='".$row['reference']."'><i class='fa fa-search'></i> View</button>
+                              <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['reference']."'><i class='fa fa-trash'></i> Delete</button>
                              
                             </td>
                           </tr>
@@ -167,8 +172,8 @@ function getRow(id){
     data: {id:id},
     dataType: 'json',
     success: function(response){
-      $('.userid').val(response.refference);
-      $('#edit_id').val(response.id);
+      $('.userid').val(response.reference);
+      $('#edit_id').val(response.Id);
       $('#edit_email').val(response.email);
       $('#edit_firstname').val(response.firstname);
       $('#edit_lastname').val(response.lastname);
@@ -188,8 +193,8 @@ function getRow(id){
       $('#edit_chargeCode').val(response.chargeCode);   
       $('#edit_chargeType').val(response.chargeType); 
       $('#edit_penalty').val(response.penalty); 
-      $('#edit_vehicle-registration').val(response.penalty);       
-      $('.refference').html('Refference :'+response.refference);
+      $('#edit_vehicle-registration').val(response.vehicleRegistration);       
+      $('.refference').html('Reference :'+response.reference);
       $('.fullname').html('Issued to :'+response.firstname+' '+response.lastname);
     }
   });

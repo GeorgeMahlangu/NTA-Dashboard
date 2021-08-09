@@ -52,7 +52,7 @@
 
 
 		try{
-			$stmt = $conn->prepare("UPDATE licence SET licenceNumber=:licenceNumber, licenceCode=:licenceCode, PrDP=:PrDP, dateIssued=:issueDate, expiryDate=:expiryDate WHERE id=:id");
+			$stmt = $conn->prepare("UPDATE licence SET licenceNumber=:licenceNumber, licenceCode=:licenceCode, PrDP=:PrDP, dateIssued=:issueDate, expiryDate=:expiryDate WHERE Id=:id");
 			$stmt->execute(['licenceNumber'=>$licence, 'id'=>$id, 'licenceCode'=>$licenceCode, 'PrDP'=>$prdp, 'issueDate'=>$issueDate, 'expiryDate'=>$expiryDate]);
 			$_SESSION['success'] = 'Licence updated successfully';
 

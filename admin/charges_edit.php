@@ -21,15 +21,15 @@
 			
 		$conn = $pdo->open();
 
-		$stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM charge WHERE chargeCode=:chargeCode");
-		$stmt->execute(['chargeCode'=>$newChargeCode]);
-		$row = $stmt->fetch();
+		// $stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM charge WHERE chargeCode=:chargeCode");
+		// $stmt->execute(['chargeCode'=>$newChargeCode]);
+		// $row = $stmt->fetch();
 
-		if($row['numrows'] > 0){
-			$_SESSION['error'] = 'Charge Code already Exist';
-			header('location: charges.php');
-			exit();
-		}
+		// if($row['numrows'] > 0){
+		// 	$_SESSION['error'] = 'Charge Code already Exist';
+		// 	header('location: charges.php');
+		// 	exit();
+		// }
 
 		
 		// if(!preg_match($emailValidation,$email)){

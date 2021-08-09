@@ -41,7 +41,7 @@
 		{
             if($verifyPassword != $password)
             {
-                $_SESSION['error'] = 'Password do not match';
+                $_SESSION['error'] = 'Passwords do not match';
 				header('location: signup.php');
 				exit();	
 
@@ -54,7 +54,7 @@
 		}
 		try{
 
-			$stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM administrator WHERE email=:email");
+			$stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM administrator WHERE adminEmail=:email");
 			$stmt->execute(['email'=>$email]);
 			$row = $stmt->fetch();
 			if($row['numrows'] > 0){
@@ -62,7 +62,7 @@
 			}
 			else
 			{
-				$stmt = $conn->prepare("INSERT INTO `administrator` (`firstname`,`lastname`, `email`, `password`) VALUES (:firstname, :lastname, :email, :password)");
+				$stmt = $conn->prepare("INSERT INTO `administrator` (`firstname`,`lastname`, `adminEmail`, `password`) VALUES (:firstname, :lastname, :email, :password)");
 				$stmt->execute(['firstname'=>$firstname, 'lastname'=>$lastname, 'email'=>$email, 'password'=>$password]);
 				$_SESSION['success'] = 'Administrator added successfully proceed to login';
 

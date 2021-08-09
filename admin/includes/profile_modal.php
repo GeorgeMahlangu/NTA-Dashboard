@@ -13,7 +13,7 @@
                   	<label for="email" class="col-sm-3 control-label">Email</label>
 
                   	<div class="col-sm-9">
-                    	<input type="text" class="form-control" id="email" name="email" value="<?php echo $admin['email']; ?>">
+                    	<input type="text" class="form-control" id="email" name="email" value="<?php echo $admin['adminEmail']; ?>">
                   	</div>
                 </div>
                 <div class="form-group">

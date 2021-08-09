@@ -78,14 +78,14 @@
                         echo "
                           <tr>
                             <td>".$row['licenceNumber']."</td> 
-                            <td>".$row['id']."</td> 
+                            <td>".$row['Id']."</td> 
                             <td>".$row['licenceCode']."</td>
                             <td>".$row['PrDP']."</td>
                             <td>".date('M d, Y', strtotime($row['dateIssued']))."</td>
                             <td>".date('M d, Y', strtotime($row['expiryDate']))."</td>
                             <td>
-                            <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
-                              <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button>
+                            <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['Id']."'><i class='fa fa-edit'></i> Edit</button>
+                              <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['Id']."'><i class='fa fa-trash'></i> Delete</button>
                              
                             </td>
                           </tr>
@@ -152,8 +152,8 @@ function getRow(id){
     data: {id:id},
     dataType: 'json',
     success: function(response){
-      $('.userid').val(response.id);
-      $('#edit_id').val(response.id);
+      $('.userid').val(response.Id);
+      $('#edit_id').val(response.Id);
       $('#edit_licence_number').val(response.licenceNumber);
       $('#edit_licence-code').val(response.licenceCode);
       $('#edit_prdp').val(response.PrDP);

@@ -4,7 +4,12 @@
 	function generateRow($id, $conn){
 		$contents = '';
 	 	
-		$stmt = $conn->prepare("SELECT * FROM ticket WHERE id=:id");
+		$stmt = $conn->prepare("SELECT T.*,C.chargeType, C.penalty,V.*,D.firstname, D.lastname, D.address, D.email, D.cellnumber, L.dateIssued, L.expiryDate, L.licenceCode, L.PrDP 
+		from ticket as T
+		LEFT JOIN charge as C ON C.chargeCode = T.chargeCode
+		LEFT JOIN vehicle as V ON V.vehicleRegistration = T.vehicleRegistration
+		LEFT JOIN driver as D ON D.Id = T.Id
+		LEFT JOIN licence as L on L.Id = D.Id where T.Id=:id");
 		$stmt->execute(['id'=>$id]);
 		$total = 0;
         $count = 0;
@@ -14,8 +19,8 @@
 			$contents .= '
 			<tr>
 				<td>'.date('M d, Y', strtotime($row['created_at'])).'</td>
-				<td>'.$row['refference'].'</td>
-                <td>'.$row['id'].'</td>
+				<td>'.$row['reference'].'</td>
+                <td>'.$row['Id'].'</td>
 				<td>'.$row['firstname'].' '.$row['lastname'].'</td>
 				<td>'.$row['email'].'</td>
 				<td>'.$row['cellnumber'].'</td>
@@ -109,7 +114,7 @@
 
 
 
-        $stmt = $conn->prepare("SELECT * FROM ticket WHERE id=:id");
+        $stmt = $conn->prepare("SELECT * FROM driver WHERE Id=:id");
 		$stmt->execute(['id'=>$id]);
         $row = $stmt->fetch();
         $fullname = $row['firstname'].' '.$row['lastname'];

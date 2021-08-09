@@ -9,7 +9,7 @@
 
 	$conn = $pdo->open();
 
-	$stmt = $conn->prepare("SELECT * FROM administrator WHERE email=:email");
+	$stmt = $conn->prepare("SELECT * FROM administrator WHERE adminEmail=:email");
 	$stmt->execute(['email'=>$_SESSION['admin']]);
 	$admin = $stmt->fetch();
 

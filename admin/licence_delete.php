@@ -7,7 +7,7 @@
 		$conn = $pdo->open();
 
 		try{
-			$stmt = $conn->prepare("DELETE FROM licence WHERE id=:id");
+			$stmt = $conn->prepare("DELETE FROM licence WHERE Id=:id");
 			$stmt->execute(['id'=>$id]);
 
 			$_SESSION['success'] = 'licence deleted successfully';
