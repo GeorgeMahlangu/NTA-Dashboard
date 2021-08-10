@@ -134,63 +134,80 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b>Edit Licence</b></h4>
+              <h4 class="modal-title"><b>Edit Vehicle</b></h4>
             </div>
             <div class="modal-body">
-              <form class="form-horizontal" method="POST" action="licence_edit.php">
+              <form class="form-horizontal" method="POST" action="vehicle_edit.php">
                 <input type="hidden" class="userid" name="id">
                 <div class="form-group">
-                    <label for="firstname" class="col-sm-3 control-label">ID</label>
+                    <label for="vehicleReg" class="col-sm-3 control-label">Vehicle Registration</label>
 
                     <div class="col-sm-9">
-                      <input readonly type="text" class="form-control" id="edit_id" name="new_id" required>
+                      <input type="text" class="form-control" id="edit_vehicleReg" name="vehicleReg" required readonly>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="firstname" class="col-sm-3 control-label">Licence Number</label>
+                    <label for="licenceDisk" class="col-sm-3 control-label">Licence Disk</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_licence_number" name="licence_number" required>
+                        <input type="text" class="form-control" id="edit_licenceDisk" name="licenceDisk" required>
                     </div>
                 </div>
-               
                 <div class="form-group">
-                    <label for="licence-code" class="col-sm-3 control-label">Licence Code</label>
+                    <label for="model" class="col-sm-3 control-label">Model</label>
 
                     <div class="col-sm-9">
-                    <select name="licence-code" class="form-control input-sm" id="edit_licence-code">
-                        <option value="0">Select One</option>
-                        <option value="A">A</option>
-                        <option value="A1">A1</option>
-                        <option value="B">B</option>
-                        <option value="C">C</option>
-                        <option value="C1">C1</option>
-                        <option value="EB">EB</option>
-                        <option value="EC">EC</option>
-                        <option value="EC">EC1</option>
+                      <input type="text" class="form-control" id="edit_model" name="model" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="vehicleType" class="col-sm-3 control-label">Vehicle Type</label>
+
+                    <div class="col-sm-9">
+                    <select name="vehicleType" class="form-control input-sm" id="edit_vehicleType">
+                    <option value="0">Select One</option>
+                    <?php    
+                        $conn = $pdo->open();
+
+                            try{
+                            $stmt = $conn->prepare("SELECT * FROM vehicletype");
+                            $stmt->execute();
+                            foreach($stmt as $row){
+
+                                echo "
+                                <option value=".$row['vehicleType'].">".$row['vehicleType']."</option>
+                                ";
+                            }
+                            }
+                            catch(PDOException $e){
+                            echo $e->getMessage();
+                            }
+
+                            $pdo->close();
+
+                        ?>
                     </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="email" class="col-sm-3 control-label">PrDP</label>
+                    <label for="vehicleColour" class="col-sm-3 control-label">Vehicle Colour</label>
 
                     <div class="col-sm-9">
-                      <select name="prdp" id="edit_prdp">
-                          <option value="Yes">Yes</option>
-                          <option value="No">No</option>
-                      </select>
+                      <input type="text" class="form-control" id="edit_vehicleColour" name="vehicleColour" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="dateIssued" class="col-sm-3 control-label">Date Issued</label>
+                    <label for="vehicleOwner" class="col-sm-3 control-label">Vehicle Owner</label>
+
                     <div class="col-sm-9">
-                    <input type="date" id="edit_dateIssued" name="dateIssued">
+                      <input type="text" class="form-control" id="edit_vehicleOwner" name="vehicleOwner" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="expiryDate" class="col-sm-3 control-label">Expiry Date</label>
+                    <label for="vehicleRegisteredAddress" class="col-sm-3 control-label">Vehicle Registered Address</label>
+
                     <div class="col-sm-9">
-                    <input type="date" id="edit_expiryDate" name="expiryDate">
+                      <textarea name="vehicleRegisteredAddress" id="edit_vehicleRegisteredAddress" cols="50" rows="5"></textarea>
                     </div>
                 </div>
             </div>
@@ -213,10 +230,10 @@
               <h4 class="modal-title"><b>Deleting...</b></h4>
             </div>
             <div class="modal-body">
-              <form class="form-horizontal" method="POST" action="licence_delete.php">
+              <form class="form-horizontal" method="POST" action="vehicle_delete.php">
                 <input type="hidden" class="userid" name="id">
                 <div class="text-center">
-                    <p>DELETE LICENCE</p>
+                    <p>DELETE VEHICLE</p>
                     <h2 class="bold fullname"></h2>
                 </div>
             </div>

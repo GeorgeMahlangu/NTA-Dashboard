@@ -73,7 +73,6 @@
         
         */
 
-
 		$conn = $pdo->open();
 
 		try{

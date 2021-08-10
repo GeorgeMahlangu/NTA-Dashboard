@@ -102,7 +102,7 @@
                             <td>".$row['firstname'].' '.$row['lastname']."</td>
                             <td>".$row['Id']."</td>
                             <td>".$row['email']."</td>
-                            <td>".date('M d, Y', strtotime($row['dateIssued']))."</td>
+                            <td>".date('M d, Y', strtotime($row['created_at']))."</td>
                             <td>
                             <button class='btn btn-info btn-sm info edit btn-flat' data-id='".$row['reference']."'><i class='fa fa-search'></i> View</button>
                               <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['reference']."'><i class='fa fa-trash'></i> Delete</button>
@@ -200,17 +200,20 @@ function getRow(id){
   });
 }
 
-// function getCategory(){
-//   $.ajax({
-//     type: 'POST',
-//     url: 'category_fetch.php',
-//     dataType: 'json',
-//     success:function(response){
-//       $('#category').append(response);
-//       $('#edit_category').append(response);
-//     }
-//   });
-// }
+/** 
+function getCategory(){
+  $.ajax({
+    type: 'POST',
+    url: 'category_fetch.php',
+    dataType: 'json',
+    success:function(response){
+      $('#category').append(response);
+      $('#edit_category').append(response);
+    }
+  });
+}
+*/
+ 
 </script>
 <script>
     $(function(){

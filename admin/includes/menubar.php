@@ -21,7 +21,7 @@
       <li><a href="tickets.php"><i class="fa fa-money"></i> <span>Tickets</span></a></li>
       <li><a href="licence.php"><i class="fa fa-barcode"></i> <span>Licences</span></a></li>
       <li><a href="charges.php"><i class="fa fa-line-chart"></i> <span>Charges</span></a></li>
-      <li><a href="vehicle.php"><i class="fa fa-car"></i> <span>Vehicle</span></a></li>
+      <li><a href="vehicle.php"><i class="fa fa-car"></i> <span>Vehicles</span></a></li>
 
     </ul>
   </section>

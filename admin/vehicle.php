@@ -151,18 +151,19 @@ $(function(){
 function getRow(id){
   $.ajax({
     type: 'POST',
-    url: 'licence_row.php',
+    url: 'vehicle_row.php',
     data: {id:id},
     dataType: 'json',
     success: function(response){
-      $('.userid').val(response.Id);
-      $('#edit_id').val(response.Id);
-      $('#edit_licence_number').val(response.licenceNumber);
-      $('#edit_licence-code').val(response.licenceCode);
-      $('#edit_prdp').val(response.PrDP);
-      $('#edit_dateIssued').val(response.dateIssued);
-      $('#edit_expiryDate').val(response.expiryDate);
-      $('.fullname').html('Licence Number: ' + response.licenceNumber + '<br>Issued to :'+response.id);
+      $('.userid').val(response.vehicleRegistration);
+      $('#edit_vehicleReg').val(response.vehicleRegistration);
+      $('#edit_model').val(response.model);
+      $('#edit_vehicleType').val(response.vehicleType);
+      $('#edit_vehicleColour').val(response.vehicleColour);
+      $('#edit_vehicleOwner').val(response.vehicleOwner);
+      $('#edit_vehicleRegisteredAddress').val(response.vehicleRegisteredAddress);
+      $('#edit_licenceDisk').val(response.licenceDisk);
+      $('.fullname').html('Vehicle Registration: ' + response.vehicleRegistration + '<br>Owned By :'+response.vehicleOwner);
     }
   });
 }
